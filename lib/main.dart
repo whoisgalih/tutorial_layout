@@ -31,6 +31,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final data = const [
+    {"tgl": "02/03/2022", "nilai": "150"},
+    {"tgl": "01/02/2022", "nilai": "140"},
+    {"tgl": "12/01/2022", "nilai": "170"},
+    {"tgl": "11/12/2021", "nilai": "110"},
+    {"tgl": "10/11/2021", "nilai": "180"},
+    {"tgl": "09/10/2021", "nilai": "190"},
+    {"tgl": "08/09/2021", "nilai": "160"},
+    {"tgl": "07/08/2021", "nilai": "155"},
+    {"tgl": "06/07/2021", "nilai": "145"},
+    {"tgl": "05/06/2021", "nilai": "140"},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -163,6 +176,34 @@ class _MyHomePageState extends State<MyHomePage> {
                   fontWeight: FontWeight.w700,
                   letterSpacing: 0.25,
                 ),
+              ),
+            ),
+            Expanded(
+              child: ListView.builder(
+                itemCount: data.length,
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Tanggal tes:\nNilai:",
+                            style: TextStyle(color: Colors.blue, fontSize: 20),
+                          ),
+                          Text(
+                            "${data[index]['tgl']}\n${data[index]['nilai']}",
+                            style: TextStyle(color: Colors.blue, fontSize: 20),
+                            textAlign: TextAlign.right,
+                          ),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 10,
+                      )
+                    ],
+                  );
+                },
               ),
             )
           ],
