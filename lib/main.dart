@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorial_layout/tutorial11.1.dart';
 
 void main() {
   runApp(const MyApp());
@@ -167,15 +168,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 ],
               ),
             ),
-            Container(
-              child: const Text(
-                "Riwayat Tes",
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 28,
-                  fontWeight: FontWeight.w700,
-                  letterSpacing: 0.25,
-                ),
+            const Text(
+              "Riwayat Tes",
+              style: TextStyle(
+                color: Colors.black,
+                fontSize: 28,
+                fontWeight: FontWeight.w700,
+                letterSpacing: 0.25,
               ),
             ),
             Expanded(
@@ -187,21 +186,42 @@ class _MyHomePageState extends State<MyHomePage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(
+                          const Text(
                             "Tanggal tes:\nNilai:",
                             style: TextStyle(color: Colors.blue, fontSize: 20),
                           ),
                           Text(
                             "${data[index]['tgl']}\n${data[index]['nilai']}",
-                            style: TextStyle(color: Colors.blue, fontSize: 20),
+                            style: const TextStyle(
+                                color: Colors.blue, fontSize: 20),
                             textAlign: TextAlign.right,
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       )
                     ],
+                  );
+                },
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 30),
+              child: InkWell(
+                child: const Text(
+                  "Go to Tutorial 11-1",
+                  style: TextStyle(
+                    color: Colors.indigo,
+                    fontSize: 26,
+                  ),
+                ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const MyApp11_1(),
+                    ),
                   );
                 },
               ),
